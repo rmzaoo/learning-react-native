@@ -1,25 +1,57 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import React from "react";
+import Card from "../components/Card";
 
-const Homepage = ({ navigation }) => {
+const Homepage = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>Escolhe as tua opçoes:</Text>
+      <Text>Homepage</Text>
+      <ScrollView
+        style={styles.cards}
+        horizontal={true}
+        decelerationRate={0}
+        snapToInterval={260}
+        snapToAlignment={"center"}
+      >
+        <Card
+          info={{
+            nameCard: "Rafael Martins",
+            numberCard: "2323 1221 1221 1221",
+            typeCard: "VISA",
+          }}
+        />
+        <Card
+          info={{
+            nameCard: "Rafael Martins",
+            numberCard: "1232 5433 4323 34343",
+            typeCard: "MasterCard",
+          }}
+        />
+        <Card
+          info={{
+            nameCard: "Rafael Martins",
+            numberCard: "2324 7657 23423 4234",
+            typeCard: "American Express",
+          }}
+        />
+      </ScrollView>
     </SafeAreaView>
-  )
-}
-
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#000',
-        height: '100%',
-        color: '#1f1f1f',
-    },
-    text: {
-        color: '#fff',
-    }
+  container: {
+    backgroundColor: "#202020",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  cards: {
+    position: "absolute",
+    width: "100%",
+    paddingHorizontal: "10px",
+    paddingVertical: "20px",
+  },
 });
 
-export default Homepage
+export default Homepage;
